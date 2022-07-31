@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>page 1 {{$name}}</h1>
+    <h1>Welcome to keep coding... {{$name}}</h1>
 </body>
 </html>
