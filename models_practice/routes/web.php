@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+//import shop model
+use App\Models\Shop;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,33 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/shop',function(){
+    // //get many shops
+    // $shops = Shop::where('numer_of_employees','>',5)->get();
+
+    // //get one shop
+    // $shop = Shop::find(10);
+
+    // //create a  shop
+    // $shop = Shop::create([
+    //     'name'=>'Shop 10',
+    //     'numer_of_employees'=>10,
+    //     'address'=>'address 10',
+    // ]);
+
+    // //update a shop
+    // $shop = Shop::find(101);
+    // $shop->name = 'Shop 101';
+    // $shop->save();
+
+    // //delete a shop
+    // // $shop = Shop::destroy(101);
+    // $shop = Shop::find(100);
+    // if($shop){
+    //     $shop->delete();
+    // }
+
+    // return $shop;
 });
