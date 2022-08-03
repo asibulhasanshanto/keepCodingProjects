@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 //import shop model
 use App\Models\Shop;
+//import Classroom model
+use App\Models\Classroom;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,4 +48,10 @@ Route::get('/shop',function(){
     // }
 
     // return $shop;
+});
+
+Route::get('/classrooms_student',function(){
+    $classroom = Classroom::find(1);
+    $students = $classroom->students;
+    return $students;
 });
