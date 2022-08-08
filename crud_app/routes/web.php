@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // create a array of integers
+    // get a random string from array named food_images
+    // return view with random string
+
+    $numbers = [1, 2, 3, 4, 5];
+    return view('Racipe.index', ['recipes' => $numbers]);
 });
