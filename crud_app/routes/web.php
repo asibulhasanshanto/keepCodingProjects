@@ -13,11 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    // create a array of integers
-    // get a random string from array named food_images
-    // return view with random string
+// Route::get('/', function () {
+//     // create a array of integers
+//     // get a random string from array named food_images
+//     // return view with random string
 
-    $numbers = [1, 2, 3, 4, 5];
-    return view('Racipe.index', ['recipes' => $numbers]);
-});
+//     $numbers = [1, 2, 3, 4, 5];
+//     return view('Racipe.index', ['recipes' => $numbers]);
+// });
+
+Route::get('/recipes', 'App\Http\Controllers\RecipeController@index');
