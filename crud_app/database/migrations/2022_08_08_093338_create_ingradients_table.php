@@ -20,8 +20,8 @@ return new class extends Migration
         });
 
         Schema::create('ingradient_recipe', function(Blueprint $table){
-            $table->foreignId('ingradient_id')->references('id')->on('ingradients')->constrained();
-            $table->foreignId('recipe_id')->references('id')->on('recipes')->constrained();
+            $table->foreignId('ingradient_id')->references('id')->on('ingradients')->constrained('cascade');
+            $table->foreignId('recipe_id')->references('id')->on('recipes')->constrained('cascade');
         });
     }
 

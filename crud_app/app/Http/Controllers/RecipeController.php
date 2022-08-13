@@ -26,7 +26,8 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        //
+        $ingrediants = \App\Models\Ingradient::all();
+        return view('Racipe.create', ['ingradients' => $ingrediants]);
     }
 
     /**
@@ -37,7 +38,22 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //data validation
+        $this->validate($request, [
+            'name' => 'required|string|max:255|min:3|alpha_dash',
+            'description' => 'required|string',
+            'instruction' => 'required|string',
+            'ingradients' => 'required|array',
+        ]);
+        $recipe = Recipe::create(
+            [
+                'name' => $request->name, 
+                'description' => $request->description,
+                'instruction' => $request->instruction,
+            ]
+        );
+        $recipe->ingradients()->attach($request->ingradients);
+        return redirect(route('recipes.index'));
     }
 
     /**
@@ -83,6 +99,9 @@ class RecipeController extends Controller
      */
     public function destroy(Recipe $recipe)
     {
-        //
+        //detach the ingredients from the recipe
+        $recipe->ingradients()->detach();
+        $recipe->delete();
+        return redirect(route('recipes.index'));
     }
 }

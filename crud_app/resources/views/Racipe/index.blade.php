@@ -4,7 +4,13 @@
 @endsection
 @section('body')
     {{-- create a list of card views using tailwind --}}
+    {{-- create an a tag to go to recipe create route --}}
+    <a href="{{ route('recipes.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+        Create Recipe
+    </a>
     <div class="flex flex-wrap justify-center">
+        
+
         @foreach ($himus as $recipe)
             <div class="w-full max-w-sm m-2">
                 <div class="bg-white border-2 border-gray-400 rounded-lg shadow-md overflow-hidden">
